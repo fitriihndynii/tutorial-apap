@@ -40,7 +40,7 @@
     
     Maven adalah Java Build Tools yang menggunakan konsep Project Object Model (POM). POM merupakan sebuah XML File yang terdapat pada project Maven yang di dalamnya terdapat
     konfigurasi dari project kita. POM berisi informasi an konfigurasi yang digunakan Maven untuk membuat project. Maven mendefinisikan struktur projectnya sendiri sehingga
-    project tersebut dapat dibuka dengan berbagai macam IDE.
+    project tersebut dapat dibuka dengan berbagai macam IDE. Alternatif lain yang mungkin bisa digunakan ialah Ant atau Gradle.
 
 6. Selain untuk pengembangan web, apa saja yang bisa dikembangkan dengan Spring framework?
     
