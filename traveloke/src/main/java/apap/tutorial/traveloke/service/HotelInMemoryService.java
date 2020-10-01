@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class HotelInMemoryService implements HotelService{
     private List<HotelModel> listHotel;
+    private HotelModel hotelById;
 
     //Constructor
     public HotelInMemoryService(){
@@ -27,7 +28,6 @@ public class HotelInMemoryService implements HotelService{
 
     @Override
     public HotelModel getHotelByIdHotel(String idHotel) {
-        HotelModel hotelById = listHotel.get(0);
         for(int i = 0; i<listHotel.size(); i++){
             if(listHotel.get(i).getIdHotel().equalsIgnoreCase(idHotel)){
                 hotelById = listHotel.get(i);
