@@ -90,4 +90,14 @@ public class HotelController {
         return "updateTelepon-hotel";
     }
 
+    @RequestMapping("/hotel/delete/id-hotel/{idHotel}")
+    public String deleteHotel(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model){
+
+        hotelService.deleteHotel(idHotel);
+
+        return "delete-hotel";
+    }
+
 }

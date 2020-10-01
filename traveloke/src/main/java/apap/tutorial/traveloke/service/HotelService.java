@@ -15,4 +15,6 @@ public interface HotelService {
     HotelModel getHotelByIdHotel(String idHotel);
 
     HotelModel updateNoTelepon(String id, String noTelepon);
+
+    void deleteHotel(String idHotel);
 }

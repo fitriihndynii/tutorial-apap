@@ -47,4 +47,13 @@ public class HotelInMemoryService implements HotelService{
         }
         return hotelUpdate;
     }
+
+    @Override
+    public void deleteHotel(String idHotel){
+        for(int i = 0; i<listHotel.size(); i++){
+            if(listHotel.get(i).getIdHotel().equalsIgnoreCase(idHotel)){
+                listHotel.remove(i);
+            }
+        }
+    }
 }
