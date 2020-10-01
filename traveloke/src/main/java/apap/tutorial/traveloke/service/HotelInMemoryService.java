@@ -49,11 +49,14 @@ public class HotelInMemoryService implements HotelService{
     }
 
     @Override
-    public void deleteHotel(String idHotel){
+    public boolean deleteHotel(String idHotel){
+        boolean hapus = false;
         for(int i = 0; i<listHotel.size(); i++){
             if(listHotel.get(i).getIdHotel().equalsIgnoreCase(idHotel)){
                 listHotel.remove(i);
+                hapus = true;
             }
         }
+        return hapus;
     }
 }

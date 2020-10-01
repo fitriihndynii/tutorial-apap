@@ -95,9 +95,11 @@ public class HotelController {
             @PathVariable(value = "idHotel") String idHotel,
             Model model){
 
-        hotelService.deleteHotel(idHotel);
-
-        return "delete-hotel";
+        if(hotelService.deleteHotel(idHotel)){
+            return "delete-hotel";
+        }else{
+            return "error";
+        }
     }
 
 }
