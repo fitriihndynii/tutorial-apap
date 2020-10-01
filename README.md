@@ -99,7 +99,7 @@
    
    - Sebelum menambahkan hotel baru ![Sebelum menambahkan hotel baru](https://i.ibb.co/TmJcsSb/Before.jpg)
    - Menambahkan hotel baru ![Menambahkan hotel baru](https://i.ibb.co/pxv7Qhj/1601556520307.jpg)
-   - Viewall list hotel ![Viewall list hotel](https://i.ibb.co/S0ZKxps/1601556536845.jpg)
+   - Melihat list hotel setelah penambahan hotel baru ![Viewall list hotel](https://i.ibb.co/S0ZKxps/1601556536845.jpg)
    
 ### What I did not understand
 - Perbedaan anatara *GetMapping* dengan *RequestMapping*
