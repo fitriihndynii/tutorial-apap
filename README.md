@@ -97,9 +97,9 @@
 5. Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses
    http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
    
-   Sebelum menambahkan hotel baru - https://ibb.co/Wg7nLwP
-   Menambahkan hotel baru - https://ibb.co/c1cBwYh
-   Viewall list hotel - https://ibb.co/gwcD7Cj
+   - ![Sebelum menambahkan hotel baru](https://i.ibb.co/TmJcsSb/Before.jpg)
+   - ![Menambahkan hotel baru](https://i.ibb.co/pxv7Qhj/1601556520307.jpg)
+   - ![Viewall list hotel](https://i.ibb.co/S0ZKxps/1601556536845.jpg)
    
 ### What I did not understand
 - Perbedaan anatara *GetMapping* dengan *RequestMapping*
