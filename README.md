@@ -66,7 +66,7 @@
 - Membuat *model* dengan konsep MVC dalam *project* Spring Boot
 - Membuat *service* untuk *create, read, dan delete* data menggunakan konsep MVC dalam *project* Spring Boot
 
-###Pertanyaan
+### Pertanyaan
 1. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
     http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxx
     Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
@@ -91,8 +91,7 @@
 4. Jika Papa APAP ingin melihat Hotel dengan nama Papa APAP, link apa yang harus
    diakses?
    
-   http://localhost:8080/hotel/view?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom
-   &noTelepon=081xxx
+   http://localhost:8080/hotel/view?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxx
    
 5. Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses
    http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
