@@ -58,3 +58,48 @@
     string query yang diberikan.
 
 ### What I did not understand
+-
+
+## Tutorial 2
+### What I have learned today
+- *Model*, *service*, dan *controller* beserta fungsinya
+- Membuat *model* dengan konsep MVC dalam *project* Spring Boot
+- Membuat *service* untuk *create, read, dan delete* data menggunakan konsep MVC dalam *project* Spring Boot
+
+###Pertanyaan
+1. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
+    http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxx
+    Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+    
+    Halaman tidak muncul. Hal itu terjadi karena belum terdapat file template html yang akan dikembalikan oleh *controller*
+    kepada *view* untuk menampilkan laman yang diinginkan.
+
+2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan
+   implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam
+   konteks service dan controller yang telah kamu buat
+   
+   @Autowired merupakan hasil implementasi dari konsep Dependency, yang dimana HotelController bergantung pada HotelService.
+   Cara @Autowired bekerja ialah dengan menginjeksi HotelService secara otomatis ke HotelController.
+   
+3. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
+   http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom
+   Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+   
+   Akan memunculkan error yang disebabkan *missing parameter*. Hal tersebut terjadi karena masukan yang diberikan tidak sesuai
+   dengan masukan yang diminta, yaitu tidak terdapat masukan untuk parameter No Telepon.
+   
+4. Jika Papa APAP ingin melihat Hotel dengan nama Papa APAP, link apa yang harus
+   diakses?
+   
+   http://localhost:8080/hotel/view?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom
+   &noTelepon=081xxx
+   
+5. Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses
+   http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+   
+   Sebelum menambahkan hotel baru - https://ibb.co/Wg7nLwP
+   Menambahkan hotel baru - https://ibb.co/c1cBwYh
+   Viewall list hotel - https://ibb.co/gwcD7Cj
+   
+### What I did not understand
+- Perbedaan anatara *GetMapping* dengan *RequestMapping*
