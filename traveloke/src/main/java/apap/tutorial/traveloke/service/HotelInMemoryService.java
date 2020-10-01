@@ -10,6 +10,7 @@ import java.util.List;
 public class HotelInMemoryService implements HotelService{
     private List<HotelModel> listHotel;
     private HotelModel hotelById;
+    private HotelModel hotelUpdate;
 
     //Constructor
     public HotelInMemoryService(){
@@ -37,15 +38,16 @@ public class HotelInMemoryService implements HotelService{
     }
 
     @Override
-    public HotelModel updateNoTelepon(String id, String noTelepon){
-        HotelModel hotelUpdate = listHotel.get(0);
+    public boolean updateNoTelepon(String id, String noTelepon){
+        boolean update = false;
         for(int i = 0; i<listHotel.size(); i++){
             if(listHotel.get(i).getIdHotel().equalsIgnoreCase(id)){
                 hotelUpdate = listHotel.get(i);
                 hotelUpdate.setNoTelepon(noTelepon);
+                update = true;
             }
         }
-        return hotelUpdate;
+        return update;
     }
 
     @Override

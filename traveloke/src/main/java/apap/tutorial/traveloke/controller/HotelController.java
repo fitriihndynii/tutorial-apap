@@ -83,11 +83,11 @@ public class HotelController {
             @PathVariable(value = "noTelepon") String noTelepon,
             Model model){
 
-        HotelModel hotel = hotelService.updateNoTelepon(idHotel, noTelepon);
-
-        model.addAttribute("hotel", hotel);
-
-        return "updateTelepon-hotel";
+        if(hotelService.updateNoTelepon(idHotel, noTelepon)){
+            return "updateTelepon-hotel";
+        }else{
+            return "error";
+        }
     }
 
     @RequestMapping("/hotel/delete/id-hotel/{idHotel}")
