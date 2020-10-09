@@ -73,12 +73,10 @@ public class HotelController {
         return "view-hotel";
     }
 
-    @GetMapping("/hotel/viewall")
-    public String viewAllHotel(
-            @RequestParam Model model
-    ){
-        List<HotelModel> listhotel = hotelService.getHotelList();
-        model.addAttribute("listhotel", listhotel);
+    @RequestMapping("/hotel/viewall")
+    public String viewAllHotel(Model model){
+        List<HotelModel> listHotel = hotelService.getHotelListDesc();
+        model.addAttribute("listHotel", listHotel);
         return "viewall-hotel";
     }
 //    @Autowired
