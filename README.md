@@ -1,4 +1,4 @@
-# Tutorial APAP
+h# Tutorial APAP
 ## Authors
 * **Fitri Handayani** - *1806146966* - *A*
 ---
@@ -101,4 +101,58 @@
    - Melihat list hotel setelah penambahan hotel baru ![Viewall list hotel](https://i.ibb.co/S0ZKxps/1601556536845.jpg)
    
 ### What I did not understand
-- Perbedaan anatara *GetMapping* dengan *RequestMapping*
+- Perbedaan anatra *GetMapping* dengan *RequestMapping*
+
+## Tutorial 3
+### What I have learned today
+- Memahami *Create*, *Read*, *Update*, dan *Delete* (CRUD) pada basis data dengan menggunakan konsep MVC
+dalam *project* Spring Boot.
+- Membuat model yang terhubung dengan basis data
+- Memahami penggunaan JPARepository untuk melakukan *query* pada basis data.
+- Membuat sebuah *service* dengan fungsi *create* dan *read* data menggunakan konsep MVC dalam *project* Spring
+Boot
+
+### Pertanyaan
+1. Pada class KamarDb, terdapat method findAllByHotelId, apakah kegunaan dari method tersebut?
+
+    Method findAllByHotelId digunakan untuk mengembalikan list objek KamarModel yang dimiliki oleh hotel 
+    tertentu dengan id yang di input oleh user.
+    
+2. Pada class HotelController, jelaskan perbedaan method addHotelFormPage dan addHotelSubmit? 
+    
+    **addHotelFormPage** - Controller yang digunakan untuk menampilkan halaman pendaftaran hotel yang harus diisi 
+    oleh user dengan menggunakan method GetMapping.
+    
+    **addHotelSubmit** - Controller yang digunakan untuk melakukan operasi penambahan hotel baru pada database dengan 
+    data yang telah diinput user dengan menggunakan method PostMapping. Jika pembuatan hotel baru berhasil, 
+    maka sistem akan men-direct user ke halaman pemberitahuan pembentukan hotel berhasil.
+
+3. Jelaskan kegunaan dari JPA Repository! 
+    
+    Java Persistence API (JPA) merupakan alat yang digunakan untuk mengelola objek java di dalam relational database. 
+    JPA Repository dapat digunakan untuk menjalankan method-method untuk mengakses database sesuai dengan query pada 
+    relational database (berperan sebagai datamapper kedalam relational database).
+
+4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara HotelModel dan KamarModel dibuat? 
+    
+    Relasi antara HotelModel dan KamarModel dapat dilihat didalam kedua file tersebut. Pada file HotelModel, 
+    terdapat list variable(listkamar) yang menyimpan beberapa objek KamarModel dengan relasi *one-to-many* yang 
+    menunjukan bahwa sebuah objek HotelModel dapat memiliki relasi dengan beberapa objek KamarModel. 
+    Sedangkan pada file KamarModel, terdapat variable(hotel) yang menyimpan objek HotelModel dengan relasi *many-to-one*
+     yang menunjukkan bahwa objek KamarModel tersebut hanya dapat memiliki 1 relasi dengan sebuah objek HotelModel.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER! 
+    
+    **FetchType.LAZY** - Hibernate(Java Framework yang digunakan untuk menyimpan objek java pada relational database) 
+    tidak otomatis meload semua collection object ( child ) saat object parent di-fetch(diambil). Collection object 
+    (child) hanya di-load jika secara eksplisit dibutuhkan via getter method (ketika objek dipanggil). 
+    Penerapannya pada @OneToOne dan @ManyToOne
+    
+    **CascadeType.ALL** - Semua operasi(update,delete,dll) data berpengaruh ke entitas atau objek pada relasi tersebut. 
+    Untuk menjaga persistensi semua operasi EntityManager(PERSIST, REMOVE, REFRESH, MERGE, DETACH) ke entitas terkait.
+    
+    **FetchType.EAGER** - Hibernate akan me-load semua collection object (child) sesaat setelah object parent di-fetch. 
+    Default penerapan ini pada @OneToMany dan @ManyToMany
+
+### What I did not understand
+- 
