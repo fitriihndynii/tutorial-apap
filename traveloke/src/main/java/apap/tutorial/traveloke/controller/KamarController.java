@@ -45,28 +45,23 @@ public class KamarController {
         return "add-kamar";
     }
 
-//    @GetMapping("/kamar/change/{noKamar}")
-//    public String changeKamarFormPage(
-//            @PathVariable Long noKamar,
-//            Model model
-//    )
-//    @GetMapping("/hotel/change/{idHotel}")
-//    public String changeHotelFormPage(
-//            @PathVariable Long idHotel,
-//            Model model
-//    ){
-//        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-//        model.addAttribute("hotel", hotel);
-//        return "form-update-hotel";
-//    }
-//
-//    @PostMapping("/hotel/change")
-//    public String changeHotelFormSubmit(
-//            @ModelAttribute HotelModel hotel,
-//            Model model
-//    ){
-//        HotelModel hotelUpdated = hotelService.updateHotel(hotel);
-//        model.addAttribute("hotel", hotel);
-//        return "update-hotel";
-//    }
+    @GetMapping("/kamar/change/{noKamar}")
+    public String changeKamarFormPage(
+            @PathVariable Long noKamar,
+            Model model
+    ){
+        KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
+        model.addAttribute("kamar", kamar);
+        return "form-update-kamar";
+    }
+
+    @PostMapping("/kamar/change")
+    public String changeKamarFormSubmit(
+            @ModelAttribute KamarModel kamar,
+            Model model
+    ){
+        KamarModel kamarUpdated = kamarService.updateKamar(kamar);
+        model.addAttribute("kamar", kamar);
+        return "update-kamar";
+    }
 }

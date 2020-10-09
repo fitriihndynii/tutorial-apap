@@ -19,8 +19,8 @@
         <h3 th:text="'Nama Kamar: '+ ${kamar.namaKamar}"></h3>
 
         <h3 th:if="${kamar.tipe == 0}">Tipe : Deluxe</h3>
-        <h3 th:if="${kamar.tipe == 0}">Tipe : Executive</h3>
-        <h3 th:if="${kamar.tipe == 0}">Tipe : President Suite</h3>
+        <h3 th:if="${kamar.tipe == 1}">Tipe : Executive</h3>
+        <h3 th:if="${kamar.tipe == 2}">Tipe : President Suite</h3>
 
         <h3 th:text="'Kapasitas kamar: '+ ${kamar.kapasitasKamar}"></h3>
         <td><a th:href="@{/kamar/change/}+${kamar.noKamar}">Change Data Kamar</a></td>
