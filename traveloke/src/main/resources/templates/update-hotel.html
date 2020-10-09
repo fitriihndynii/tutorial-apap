@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Update Hotel</title>
+</head>
+<body>
+    <h2 th:text=" 'Hotel dengan id Hotel ' + ${hotel.id} + ' berhasil diperbaharui.'"></h2>
+    <section>
+        <h2>Informasi Hotel</h2>
+        <h3 th:text=" 'Id Hotel: ' + ${hotel.id}"></h3>
+        <h3 th:text=" 'Nama Hotel: ' + ${hotel.namaHotel}"></h3>
+        <h3 th:text=" 'Alamat Hotel: ' + ${hotel.alamat}"></h3>
+        <h3 th:text=" 'Nomor Telepon: ' + ${hotel.nomorTelepon}"></h3>
+        <td><a th:href="@{/hotel/change/}+${hotel.id}">Change Data Hotel</a></td>
+    </section>
+    <section><br><br>
+    <a href="/">Kembali</a>
+</body>
+</html>
