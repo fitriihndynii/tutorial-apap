@@ -11,6 +11,8 @@
     <h3 th:text=" 'Alamat Hotel: ' + ${hotel.alamat}"></h3>
     <h3 th:text=" 'Nomor Telepon: ' + ${hotel.nomorTelepon}"></h3>
     <td><a th:href="@{/hotel/change/}+${hotel.id}">Change Data Hotel</a></td>
+    <br><br>
+    <td><a th:href="@{/hotel/delete/}+${hotel.id}">Delete Hotel</a></td>
 </section>
 <section>
     <h2>Daftar Kamar:</h2>

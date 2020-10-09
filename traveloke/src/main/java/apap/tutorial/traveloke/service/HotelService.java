@@ -19,7 +19,6 @@ public interface HotelService {
     HotelModel updateHotel(HotelModel hotel);
 
     List<HotelModel> getHotelListDesc();
-//    boolean updateNoTelepon(String id, String noTelepon);
-//
-//    boolean deleteHotel(String idHotel);
+
+    boolean deleteHotel(Long idHotel);
 }

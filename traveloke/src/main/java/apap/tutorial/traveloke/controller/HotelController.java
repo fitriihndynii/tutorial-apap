@@ -79,6 +79,17 @@ public class HotelController {
         model.addAttribute("listHotel", listHotel);
         return "viewall-hotel";
     }
+
+    @RequestMapping("/hotel/delete/{idHotel}")
+    public String deleteHotel(
+            @PathVariable Long idHotel){
+
+        if(hotelService.deleteHotel(idHotel)){
+            return "delete-hotel";
+        }else{
+            return "delete-error";
+        }
+    }
 //    @Autowired
 //    private HotelService hotelService;
 
