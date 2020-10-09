@@ -31,7 +31,6 @@ public class KamarController {
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         kamar.setHotel(hotel);
         model.addAttribute("kamar", kamar);
-
         return "form-add-kamar";
     }
 

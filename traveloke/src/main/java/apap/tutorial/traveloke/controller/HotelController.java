@@ -46,7 +46,12 @@ public class HotelController {
             @PathVariable Long idHotel,
             Model model
     ){
+        int action = 2; //update
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        if(hotel == null){
+            model.addAttribute("action", action);
+            return "notfound-error";
+        }
         model.addAttribute("hotel", hotel);
         return "form-update-hotel";
     }
@@ -57,7 +62,7 @@ public class HotelController {
             Model model
     ){
         HotelModel hotelUpdated = hotelService.updateHotel(hotel);
-        model.addAttribute("hotel", hotel);
+        model.addAttribute("hotel", hotelUpdated);
         return "update-hotel";
     }
 
@@ -66,10 +71,21 @@ public class HotelController {
             @RequestParam(value = "idHotel") Long idHotel,
             Model model
     ){
+        int action = 1; //view
+        boolean adaKamar;
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        if(hotel == null){
+            model.addAttribute("action", action);
+            return "notfound-error";
+        }else if(hotel.getListKamar().isEmpty()){
+            adaKamar = false;
+        }else{
+            adaKamar = true;
+        }
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
         model.addAttribute("hotel", hotel);
         model.addAttribute("listKamar", listKamar);
+        model.addAttribute("adaKamar", adaKamar);
         return "view-hotel";
     }
 
@@ -85,7 +101,12 @@ public class HotelController {
             @PathVariable Long idHotel,
             Model model
     ){
-
+        int action = 3; //delete
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        if(hotel == null){
+            model.addAttribute("action", action);
+            return "notfound-error";
+        }
         if(hotelService.deleteHotel(idHotel)){
             return "delete-hotel";
         }else{
