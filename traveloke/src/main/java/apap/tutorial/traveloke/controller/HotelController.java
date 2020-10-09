@@ -82,7 +82,9 @@ public class HotelController {
 
     @RequestMapping("/hotel/delete/{idHotel}")
     public String deleteHotel(
-            @PathVariable Long idHotel){
+            @PathVariable Long idHotel,
+            Model model
+    ){
 
         if(hotelService.deleteHotel(idHotel)){
             return "delete-hotel";

@@ -64,4 +64,15 @@ public class KamarController {
         model.addAttribute("kamar", kamar);
         return "update-kamar";
     }
+
+    @GetMapping("/kamar/delete/{noKamar}")
+    public String deleteKamar(
+            @PathVariable Long noKamar,
+            Model model
+    ){
+        KamarModel kamar = kamarService.deleteKamar(noKamar);
+//        kamar.getHotel().getId();
+        model.addAttribute("kamar", kamar);
+        return "delete-kamar";
+    }
 }

@@ -33,8 +33,6 @@ public class KamarServiceImpl implements KamarService{
 
     @Override
     public KamarModel updateKamar(KamarModel kamar){
-//        List<KamarModel> listKamar = kamarDb.findByHotelId(hotel.getId());
-//        Long noKamar = kamar.getNoKamar();
         KamarModel kamarUpdate = kamarDb.findByNoKamar(kamar.getNoKamar()).get();
 
         try{
@@ -46,5 +44,12 @@ public class KamarServiceImpl implements KamarService{
         } catch (NullPointerException nullException){
             return null;
         }
+    }
+
+    @Override
+    public KamarModel deleteKamar(Long noKamar){
+        KamarModel deleteKamar = kamarDb.findByNoKamar(noKamar).get();
+        kamarDb.delete(deleteKamar);
+        return deleteKamar;
     }
 }
