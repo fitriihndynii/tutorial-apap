@@ -5,15 +5,16 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="kamar")
 public class KamarModel implements Serializable{
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noKamar;
 
     @NotNull
@@ -34,6 +35,13 @@ public class KamarModel implements Serializable{
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private HotelModel hotel;
+
+    @OneToMany(mappedBy = "kamar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ReviewModel> listReview;
+
+    public List<ReviewModel> getListReview() {
+        return listReview;
+    }
 
     public HotelModel getHotel() {
         return hotel;

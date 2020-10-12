@@ -16,4 +16,6 @@ public interface KamarService {
 
     KamarModel deleteKamar(Long noKamar);
 
+    KamarModel getKamarByNamaKamarDanTipe(String namaKamar, Integer tipe);
+
 }

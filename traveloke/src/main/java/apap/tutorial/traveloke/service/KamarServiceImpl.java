@@ -52,4 +52,9 @@ public class KamarServiceImpl implements KamarService{
         kamarDb.delete(deleteKamar);
         return deleteKamar;
     }
+
+    @Override
+    public KamarModel getKamarByNamaKamarDanTipe(String namaKamar, Integer tipe){
+        return kamarDb.findByNamaKamarAndTipe(namaKamar, tipe).get();
+    }
 }
