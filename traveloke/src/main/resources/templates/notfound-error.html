@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Not Existed Hotel</title>
+</head>
+<body>
+<h2 th:text=" 'Masukan Salah! Hotel dengan Id tersebut tidak ditemukan'"></h2>
+<div th:if="${action == 1}">
+    Proses View dibatalkan
+</div>
+<div th:if="${action == 2}">
+    Proses Update dibatalkan
+</div>
+<div th:if="${action == 3}">
+    Proses Delete dibatalkan
+</div>
+<a href="/">Home</a>
+</body>
+</html>
