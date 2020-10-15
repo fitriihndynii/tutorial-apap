@@ -7,7 +7,6 @@
 </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
-    <h2 th:text=" 'Kamar dengan nama ' + ${kamar.namaKamar} + ' telah dihapus.'"></h2>
-    <a href="/">Home</a>
+    <h2 th:text="${kamarCount} + ' kamar telah dihapus.'"></h2>
 </body>
 </html>
