@@ -90,6 +90,20 @@ public class HotelController {
         return "view-hotel";
     }
 
+    @RequestMapping("/hotel/view/{idHotel}")
+    public String viewDetailHotelWithPath(
+            @PathVariable Long idHotel,
+            Model model
+    ){
+        HotelModel hotels = hotelService.getHotelByIdHotel(idHotel);
+        List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+        boolean hasKamar = listKamar.size() > 0;
+        model.addAttribute("hasKamar", hasKamar);
+        model.addAttribute("hotel", hotels);
+        model.addAttribute("listKamar", listKamar);
+        return "view-hotel";
+    }
+
     @RequestMapping("/hotel/viewall")
     public String viewAllHotel(Model model){
         List<HotelModel> listHotel = hotelService.getHotelList();
@@ -130,11 +144,11 @@ public class HotelController {
         model.addAttribute("hotel", hotel);
 
         if(listKamar.size() == 0){
-            return "error-delete-hotel";
-        }
-        else{
             hotelService.deleteHotel(hotel);
             return "delete-hotel";
+        }
+        else{
+            return "error-delete-hotel";
         }
     }
 
