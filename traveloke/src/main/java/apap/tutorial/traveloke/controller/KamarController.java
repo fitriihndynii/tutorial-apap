@@ -39,6 +39,7 @@ public class KamarController {
             @ModelAttribute KamarModel kamar,
             Model model
     ){
+        System.out.println("kamar = " + kamar);
         kamarService.addKamar(kamar);
         model.addAttribute("kamar", kamar);
         return "add-kamar";
@@ -65,12 +66,12 @@ public class KamarController {
     }
 
     @GetMapping("/kamar/delete/{noKamar}")
-    public String deleteKamar(
-            @PathVariable Long noKamar,
+    public String deleteWithPathVariable(
+            @PathVariable(value="noKamar", required = true) Long noKamar,
             Model model
     ){
-        KamarModel kamar = kamarService.deleteKamar(noKamar);
-//        kamar.getHotel().getId();
+        KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
+        kamarService.deleteKamar(kamar);
         model.addAttribute("kamar", kamar);
         return "delete-kamar";
     }

@@ -50,21 +50,12 @@ public class HotelServiceImpl implements HotelService{
     }
 
     @Override
-    public List<HotelModel> getHotelListDesc(){
+    public List<HotelModel> getHotelListOrderByIdDesc(){
         return hotelDb.findAllByOrderByIdDesc();
     }
 
     @Override
-    public boolean deleteHotel(Long idHotel){
-        boolean delete = false;
-        HotelModel deleteHotel = hotelDb.findById(idHotel).get();
-
-        if(deleteHotel.getListKamar().isEmpty()){
-            getHotelList().remove(deleteHotel);
-            hotelDb.delete(deleteHotel);
-            delete = true;
-            return delete;
-        }
-        return delete;
+    public void deleteHotel(HotelModel hotel){
+        hotelDb.delete(hotel);
     }
 }

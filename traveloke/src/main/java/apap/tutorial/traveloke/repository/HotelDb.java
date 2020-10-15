@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface HotelDb extends JpaRepository<HotelModel, Long>{
     Optional<HotelModel> findById(Long id);
     boolean existsById(Long id);
-    public List<HotelModel> findAllByOrderByIdDesc();
+    List<HotelModel> findAllByOrderByIdDesc();
 
 }
