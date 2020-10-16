@@ -7,7 +7,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar"></nav>
+<nav th:replace="fragments/fragment :: navbar" th:text="${pageName}"></nav>
 <h2>Change Data Kamar</h2>
 <form th:action="@{/kamar/change}"th:object="${kamar}" method="POST">
     <input type="hidden" th:field="*{noKamar}">

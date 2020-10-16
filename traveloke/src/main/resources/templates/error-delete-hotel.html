@@ -6,7 +6,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar"></nav>
+<nav th:replace="fragments/fragment :: navbar" th:text="${pageName}"></nav>
     <h2 th:text = "'Hotel memiliki kamar, delete dibatalkan'"></h2>
     <a href="/hotel/viewall">Kembali</a>
 </body>

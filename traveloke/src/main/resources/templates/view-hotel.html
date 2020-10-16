@@ -6,7 +6,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar"></nav>
+<nav th:replace="fragments/fragment :: navbar" th:text="${pageName}"></nav>
 <section>
     <h2>Informasi Hotel</h2>
     <h3 th:text=" 'Id Hotel: ' + ${hotel.id}"></h3>
@@ -49,7 +49,7 @@
                     <td><a th:href="@{/kamar/change/}+${kamar.noKamar}">Change Data Kamar</a></td>
                     <td>
                         <input type="checkbox" th:field="*{listKamar}" th:value="${kamar.noKamar}"/>
-                        <labeb th:for="${#ids.prev('listKamar')}">Hapus</labeb>
+                        <label th:for="${#ids.prev('listKamar')}">Hapus</label>
                     </td>
 <!--                     <td><a th:href="@{/kamar/delete/}+${kamar.noKamar}">Delete Kamar</a></td> -->
                 </tr>

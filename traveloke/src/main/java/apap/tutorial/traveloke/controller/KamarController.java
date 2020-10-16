@@ -31,6 +31,7 @@ public class KamarController {
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         kamar.setHotel(hotel);
         model.addAttribute("kamar", kamar);
+        model.addAttribute("pageName", "Tambah Kamar");
         return "form-add-kamar";
     }
 
@@ -42,6 +43,7 @@ public class KamarController {
         System.out.println("kamar = " + kamar);
         kamarService.addKamar(kamar);
         model.addAttribute("kamar", kamar);
+        model.addAttribute("pageName", "Tambah Kamar");
         return "add-kamar";
     }
 
@@ -52,6 +54,7 @@ public class KamarController {
     ){
         KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
         model.addAttribute("kamar", kamar);
+        model.addAttribute("pageName", "Update Kamar");
         return "form-update-kamar";
     }
 
@@ -62,6 +65,7 @@ public class KamarController {
     ){
         KamarModel kamarUpdated = kamarService.updateKamar(kamar);
         model.addAttribute("kamar", kamar);
+        model.addAttribute("pageName", "Update Kamar");
         return "update-kamar";
     }
 
@@ -73,6 +77,7 @@ public class KamarController {
         KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
         kamarService.deleteKamar(kamar);
         model.addAttribute("kamar", kamar);
+        model.addAttribute("pageName", "Hapus Kamar");
         return "delete-kamar";
     }
 
@@ -82,7 +87,7 @@ public class KamarController {
             Model model
     ){
         model.addAttribute("kamarCount", hotel.getListKamar().size());
-
+        model.addAttribute("pageName", "Hapus Kamar");
         for(KamarModel kamar : hotel.getListKamar()){
             kamarService.deleteKamar(kamar);
         }

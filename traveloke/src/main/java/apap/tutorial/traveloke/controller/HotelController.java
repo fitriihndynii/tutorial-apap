@@ -22,13 +22,15 @@ public class HotelController {
     private KamarService kamarService;
 
     @GetMapping("/")
-    private String home(){
+    private String home(Model model){
+        model.addAttribute("pageName", "Home");
         return "home";
     }
 
     @GetMapping("/hotel/add")
     public String addHotelFormPage(Model model){
         model.addAttribute("hotel", new HotelModel());
+        model.addAttribute("pageName", "Tambah Hotel");
         return "form-add-hotel";
     }
 
@@ -38,6 +40,7 @@ public class HotelController {
             Model model){
         hotelService.addHotel(hotel);
         model.addAttribute("idHotel", hotel.getId());
+        model.addAttribute("pageName", "Tambah Hotel");
         return "add-hotel";
     }
 
@@ -46,13 +49,9 @@ public class HotelController {
             @PathVariable Long idHotel,
             Model model
     ){
-//        int action = 2; //update
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-//        if(hotel == null){
-//            model.addAttribute("action", action);
-//            return "notfound-error";
-//        }
         model.addAttribute("hotel", hotel);
+        model.addAttribute("pageName", "Update Hotel");
         return "form-update-hotel";
     }
 
@@ -63,6 +62,7 @@ public class HotelController {
     ){
         HotelModel hotelUpdated = hotelService.updateHotel(hotel);
         model.addAttribute("hotel", hotelUpdated);
+        model.addAttribute("pageName", "Update Hotel");
         return "update-hotel";
     }
 
@@ -71,22 +71,13 @@ public class HotelController {
             @RequestParam(value = "idHotel") Long idHotel,
             Model model
     ){
-//        int action = 1; //view
-//        boolean adaKamar;
-//        if(hotel == null){
-//            model.addAttribute("action", action);
-//            return "notfound-error";
-//        }else if(hotel.getListKamar().isEmpty()){
-//            adaKamar = false;
-//        }else{
-//            adaKamar = true;
-//        }
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
         boolean hasKamar = listKamar.size() > 0;
         model.addAttribute("hasKamar", hasKamar);
         model.addAttribute("hotel", hotel);
         model.addAttribute("listKamar", listKamar);
+        model.addAttribute("pageName", "View Hotel");
         return "view-hotel";
     }
 
@@ -101,6 +92,7 @@ public class HotelController {
         model.addAttribute("hasKamar", hasKamar);
         model.addAttribute("hotel", hotels);
         model.addAttribute("listKamar", listKamar);
+        model.addAttribute("pageName", "View Hotel");
         return "view-hotel";
     }
 
@@ -108,6 +100,7 @@ public class HotelController {
     public String viewAllHotel(Model model){
         List<HotelModel> listHotel = hotelService.getHotelList();
         model.addAttribute("listHotel", listHotel);
+        model.addAttribute("pageName", "View All Hotel");
         return "viewall-hotel";
     }
 
@@ -119,6 +112,7 @@ public class HotelController {
 
         // Add variabel semua HotelModel ke 'listHotel' untuk dirender pada thymeleaf
         model.addAttribute( "listHotel", listHotel);
+        model.addAttribute("pageName", "View All Hotel");
 
         // Return view template yang diinginkan
         return "viewall-hotel";
@@ -129,20 +123,10 @@ public class HotelController {
             @PathVariable Long idHotel,
             Model model
     ){
-//        int action = 3; //delete
-//        if(hotel == null){
-//            model.addAttribute("action", action);
-//            return "notfound-error";
-//        }
-//        if(hotelService.deleteHotel(idHotel)){
-//            return "delete-hotel";
-//        }else{
-//            return "delete-error";
-//        }
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
         model.addAttribute("hotel", hotel);
-
+        model.addAttribute("pageName", "Hapus Hotel");
         if(listKamar.size() == 0){
             hotelService.deleteHotel(hotel);
             return "delete-hotel";

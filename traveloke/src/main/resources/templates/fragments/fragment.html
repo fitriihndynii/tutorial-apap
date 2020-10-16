@@ -17,15 +17,19 @@
     </head>
 </head>
 <body>
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-    <a th:text="traveloke" class="navbar-brand font-weight-bold text-primary" href="#"></a>
+<nav th:fragment="navbar" text="${pageName}" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a th:text="traveloke" class="navbar-brand font-weight-bold text-primary" href="/"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" th:href="@{/}">Home<span class="sr-only"></span></a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-item nav-link active" th:href="@{/}">Home<span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <span class="navbar-text" th:text="${pageName}"></span>
         </div>
     </div>
 </nav>
