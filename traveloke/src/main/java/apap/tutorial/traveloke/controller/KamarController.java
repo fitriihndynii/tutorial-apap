@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class KamarController {
     @Qualifier("hotelServiceImpl")
@@ -21,6 +23,8 @@ public class KamarController {
 
     @Autowired
     private KamarService kamarService;
+
+    private List<KamarModel> tempKamar;
 
     @GetMapping("/kamar/add/{idHotel}")
     private String addKamarFormPage(
@@ -40,12 +44,20 @@ public class KamarController {
             @ModelAttribute KamarModel kamar,
             Model model
     ){
-        System.out.println("kamar = " + kamar);
         kamarService.addKamar(kamar);
         model.addAttribute("kamar", kamar);
         model.addAttribute("pageName", "Tambah Kamar");
         return "add-kamar";
     }
+
+//    @PostMapping("/kamar/add-row")
+//    private String addFormKamar(
+//            @ModelAttribute KamarModel kamar,
+//            Model model
+//    ){
+//        tempKamar.add(kamar);
+//
+//    }
 
     @GetMapping("/kamar/change/{noKamar}")
     public String changeKamarFormPage(
