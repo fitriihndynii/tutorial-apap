@@ -101,7 +101,7 @@
    - Melihat list hotel setelah penambahan hotel baru ![Viewall list hotel](https://i.ibb.co/S0ZKxps/1601556536845.jpg)
    
 ### What I did not understand
-- Perbedaan anatra *GetMapping* dengan *RequestMapping*
+- Perbedaan antara *GetMapping* dengan *RequestMapping*
 
 ## Tutorial 3
 ### What I have learned today
@@ -153,6 +153,37 @@ Boot
     
     **FetchType.EAGER** - Hibernate akan me-load semua collection object (child) sesaat setelah object parent di-fetch. 
     Default penerapan ini pada @OneToMany dan @ManyToMany
+
+### What I did not understand
+- 
+
+## Tutorial 4
+### What I have learned today
+- Memahami konsep view pada Spring Boot
+- Memahami apa itu Thymeleaf dan penggunaannya
+
+### Pertanyaan
+1. Jelaskan perbedaan th:include dan th:replace!
+
+    Perbedaannya ialah:
+    - th:include hanya akan memasukkan isi/konten dari sebuah fragment tanpa menyertakan tag yang ada pada file fragment.html
+    - th:replace akan menggantikan tag yang berada pada file host dengan spesifik tag yang berada pada file fragment.html
+    
+2. Jelaskan fungsi dari th:object!
+   
+    Untuk menspesifikasi command object yang akan digunakan pada bagian tag tertentu
+   
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+    
+    Perbedaannya yaitu * dapat mengekspresikan sebagian variable object yang belum dispesifikasikan oleh selected objek, 
+    sedangkan $ harus mengekpresikan variable objek secara lengkap. * dapat digunakan ketika membutuhkan informasi 
+    dari 1 selected objek yang sudah dispesifikasikan (menggunakan 1 selected objek). Sedangkan $ dapat digunakan ketika 
+    membutuhkan informasi dari objek lainnya yang tidak dispesifikasi sebagai selected objek (menggunakan >1 selected objek).
+    
+4. Bagaimana kamu menyelesaikan latihan nomor 3?
+    
+    Yang saya lakukan untuk menyelesaikan latihan nomor 3 yaitu dengan mentransfer atribut yang berupa String PageName 
+    pada model di controller. Setelah itu, saya menggunakan atribut tersebut untuk ditulis di bagian navbar pada fragment.
 
 ### What I did not understand
 - 

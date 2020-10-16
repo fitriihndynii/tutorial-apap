@@ -26,5 +26,24 @@
         <br>
         <button type="submit">Submit</button>
     </form>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Nama</th>
+            <th scope="col">Tipe Kamar</th>
+            <th scope="col">Kapasitas Kamar</th>
+            <th scope="col">Alamat Hotel</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${hotel.id}"></td>
+            <td th:text="${hotel.namaHotel}"></td>
+            <td th:text="${hotel.alamat}"></td>
+            <td th:text="${hotel.nomorTelepon}"></td>
+            <td><a th:href="@{/hotel/view/}+${hotel.id}" class="btn btn-sm btn-success" role="button"> Lihat </a></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
