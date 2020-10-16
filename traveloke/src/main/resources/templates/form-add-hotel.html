@@ -7,7 +7,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar" th:text="${pageName}"></nav>
+<nav th:replace="fragments/fragment :: navbar"></nav>
     <h2>Hello</h2>
     <h3>Tambah Hotel</h3>
     <form th:action="@{/hotel/add}"th:object="${hotel}" method = "POST">

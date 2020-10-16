@@ -6,7 +6,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar" th:text="${pageName}"></nav>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <section>
     <h2>Informasi Hotel</h2>
     <h3 th:text=" 'Id Hotel: ' + ${hotel.id}"></h3>
