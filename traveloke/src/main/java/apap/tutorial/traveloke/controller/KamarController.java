@@ -36,6 +36,7 @@ public class KamarController {
         kamar.setHotel(hotel);
         model.addAttribute("kamar", kamar);
         model.addAttribute("pageName", "Tambah Kamar");
+        model.addAttribute("tempKamar", tempKamar);
         return "form-add-kamar";
     }
 
@@ -50,14 +51,15 @@ public class KamarController {
         return "add-kamar";
     }
 
-//    @PostMapping("/kamar/add-row")
-//    private String addFormKamar(
-//            @ModelAttribute KamarModel kamar,
-//            Model model
-//    ){
-//        tempKamar.add(kamar);
-//
-//    }
+    @PostMapping(value="/kamar/add-multiple/{idHotel}", params = {"addRows"})
+    private String tambahForm(
+            @ModelAttribute KamarModel kamar,
+            Model model
+    ){
+        tempKamar.add(kamar);
+        model.addAttribute("tempKamar", tempKamar);
+        return "form-add-kamar";
+    }
 
     @GetMapping("/kamar/change/{noKamar}")
     public String changeKamarFormPage(
