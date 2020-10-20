@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -24,6 +26,9 @@ public class HotelController {
     @GetMapping("/")
     private String home(Model model){
         model.addAttribute("pageName", "Home");
+        LocalDateTime waktu = LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        model.addAttribute("time", waktu);
         return "home";
     }
 

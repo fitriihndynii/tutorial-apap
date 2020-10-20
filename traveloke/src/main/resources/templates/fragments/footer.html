@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <head th:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    </head>
+<body>
+    <footer th:fragment="footer" th:assert="${!#strings.isEmpty(time)}" class="footer-copyright text-center py-3">
+        <p><b>Made With Love by Fitri</b></p>
+        <span th:text="${time}"></span>
+    </footer>
+</body>
+</html>
