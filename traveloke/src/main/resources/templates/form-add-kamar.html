@@ -9,36 +9,68 @@
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
     <h3>Tambah Kamar</h3>
-    <form th:action="@{/kamar/add}" th:object="${kamar}" method="POST">
-        <input type="hidden" th:field="*{hotel}"/>
+    <form th:action="@{/kamar/add/{id}(id=${idHotel})}" th:object="${hotel}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Tipe Kamar</th>
                     <th scope="col">Kapasitas Kamar</th>
-                    <th><button class="btn btn-sm btn-primary" type="button"> Tambah </button></th>
+                    <th scope="col" style="text-align: center" width="10%">
+                        <button class="btn btn-sm btn-primary" type="submit" name="addRow" style="padding: 5px 12px;"> Tambah </button>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="kamar, iterationStatus: ${tempKamar}+1">
-                    <td><input type="text" name="namaKamar" class="form-control" placeholder="Nama Kamar"></td>
-                    <td><select name="tipe" class="form-control">
-                        <option value="0" selected>Deluxe</option>
-                        <option value="1">Executive</option>
-                        <option value="2">President Suite</option>
-                    </select></td>
-                    <td><input type="number" name="kapasitasKamar" class="form-control" placeholder="Kapasitas Kamar"></td>
-                    <td><button class="btn btn-sm btn-danger" type="button"> Hapus </button></td>
+                <tr th:each="kamar, indexStat: *{listKamar}">
+                    <td style="text-align: center">
+                        <input ype="text" name="nama" th:field="*{listKamar[__${indexStat.index}__].namaKamar}" class="form-control">
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <select th:field="*{listKamar[__${indexStat.index}__].tipe}" name="tipe" class="form-control">
+                                <option value="0">Deluxe</option>
+                                <option value="1">Executive</option>
+                                <option value="2">President Suite</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td  style="text-align: center">
+                        <input type="number" name="kapasitasKamar" th:field="*{listKamar[__${indexStat.index}__].kapasitasKamar}" class="form-control"/>
+                    </td>
+
+                    <td>
+                        <button type="submit" name="removeRow" th:value="${indexStat.index}" class="btn btn-block btn-danger" >Hapus</button>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-sm btn-success" type="submit"> Simpan </button></td>
+                    <td>
+                        <button type="submit" name="save" class="btn btn-block btn-success"> Simpan </button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
+        <!-- <form th:action="@{/kamar/add}" th:object="${kamar}" method = "POST">
+            <input type="hidden" th:field="*{hotel}"/>
+            Nama Kamar: <br>
+            <input type="text" name="namaKamar"/>
+            <br>
+            Tipe Kamar : <br>
+            <select name="tipe">
+                <option value="0">Deluxe</option>
+                <option value="1">Executive</option>
+                <option value="2">President Suite</option>
+            </select>
+            <br>
+            Kapasitas Kamar : <br>
+            <input type="number" name="kapasitasKamar"/>
+            <br>
+            <button type = "submit">Submit</button>
+        </form> -->
     </form>
 </body>
 </html>
