@@ -18,7 +18,7 @@ public interface HotelService {
     // Method untuk update hotel
     HotelModel updateHotel(HotelModel hotel);
 
-    List<HotelModel> getHotelListDesc();
+    List<HotelModel> getHotelListOrderByIdDesc();
 
-    boolean deleteHotel(Long idHotel);
+    void deleteHotel(HotelModel hotel);
 }

@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Not Existed Hotel</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <h2 th:text=" 'Masukan Salah! Hotel dengan Id tersebut tidak ditemukan'"></h2>
 <div th:if="${action == 1}">
     Proses View dibatalkan
@@ -15,6 +18,5 @@
 <div th:if="${action == 3}">
     Proses Delete dibatalkan
 </div>
-<a href="/">Home</a>
 </body>
 </html>
