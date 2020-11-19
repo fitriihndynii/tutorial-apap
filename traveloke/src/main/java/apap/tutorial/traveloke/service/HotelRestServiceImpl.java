@@ -90,7 +90,10 @@ public class HotelRestServiceImpl implements HotelRestService{
         String uriKota = "";
         if(kota.length > 1){
             for(int i = 0; i < kota.length; i++){
-                uriKota = kota[i] + "%20";
+                uriKota = kota[i];
+                if(i!= kota.length-1){
+                    uriKota += "%20";
+                }
             }
         }else{
             uriKota = kota[0];
