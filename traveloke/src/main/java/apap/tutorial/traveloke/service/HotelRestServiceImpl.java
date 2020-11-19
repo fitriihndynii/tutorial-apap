@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import javax.transaction.Transactional;
+import java.net.URI;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -78,8 +79,27 @@ public class HotelRestServiceImpl implements HotelRestService{
         data.add("alamat", "Jl. X");
         data.add("nomorTelepon", "08111112");
         return this.webClient.post().uri("/rest/hotel/full")
-                .syncBody(data)
+                .bodyValue(data)
                 .retrieve()
                 .bodyToMono(HotelDetail.class);
+    }
+
+    @Override
+    public Mono<String> findHotel(String namaKota){
+        String[] kota = namaKota.split(" ");
+        String uriKota = "";
+        if(kota.length > 1){
+            for(int i = 0; i < kota.length; i++){
+                uriKota = kota[i] + "%20";
+            }
+        }else{
+            uriKota = kota[0];
+        }
+
+        return this.webClient.get().uri(URI.create("https://hotels-com-free.p.rapidapi.com/suggest/v1.7/json?query="+uriKota+"&locale=en_US"))
+                .header("x-rapidapi-key", "2f04d81f3bmsh1af6c8d6a66f146p1a8783jsn3fa88a054b42")
+                .header("x-rapidapi-host", "hotels-com-free.p.rapidapi.com")
+                .retrieve()
+                .bodyToMono(String.class);
     }
 }
