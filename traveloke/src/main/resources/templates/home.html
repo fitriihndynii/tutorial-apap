@@ -10,7 +10,8 @@
 <body>
     <nav th:replace="fragments/fragment :: navbar"></nav>
     <div class="container-fluid">
-        <h2>Selamat datang di Traveloke! </h2>
+        <h2 th:text=" 'Hello ' + ${#httpServletRequest.remoteUser} + ' !'">Login as</h2>
+        <h2>Selamat Datang di Traveloke!</h2>
 
         <a th:href="@{/hotel/view-all}" class="btn btn-primary"> View All Hotel </a>
         <a th:href="@{/hotel/add}" class="btn btn-outline-primary"> Tambah Hotel </a>
