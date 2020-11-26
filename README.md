@@ -187,3 +187,33 @@ Boot
 
 ### What I did not understand
 - 
+
+## Tutorial 5
+### What I have learned today
+- Fungsi *web service*, *postman*, dan *mock server*
+- Cara membuat dan menggunakan method pada *web service*
+- Cara menggunakan *web service* yang tersedia menggunakan library WebClient
+- Cara membuat dan menggunakan *mock server*
+
+### Pertanyaan
+1. Apa itu Postman? Apa kegunaannya?
+
+    **Postman** adalah aplikasi untuk melakukan proses development API(create, share, test, and document APIs). Kegunaannya 
+    adalah untuk mengelompokan request API, digunakan untuk membuat Mockup API sebelum diimplementasikan ke proyek, 
+    menyimpan attribute yang dapat digunakan ataupun dimanipulasi dalam proses request API.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+
+    **@JsonIgnoreProperties** digunakan untuk menandai atribut atau properti dalam serialisasi dan deserialisasi JSON yang ingin diabaikan
+    **@JsonProperty** digunakan untuk menandai atribut atau properti logis yang digunakan dalam serialisasi dan deserialisasi
+
+3. Apa Kegunaan atribut WebClient?
+
+    WebCient merupakan bagian dari WebFlux framework yang dapat digunakan untuk membangun dan mengirim setiap tipe URI.
+    Untuk mengkonstruksi URIs, kita dapat menggunakan method uri() pada WebClientBuilder class yang menyediakan UriBuilder instance sebagai instance
+    
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+   
+   **ResponseEntity** merepresentasikan keseluruhan HTTP response, dapat digunakan untuk mengontrol/ memanipulasi yang termasuk dalam HTTP response, 
+   seperti status code, headers, dan body. 
+   **BindingResult** adalah object Spring yang menampung hasil dari validation, binding, dan contain errors yang mungkin saja muncul
