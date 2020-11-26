@@ -25,9 +25,13 @@
     </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-item nav-link active" th:href="@{/}">Home<span class="sr-only"></span></a>
-                </li>
+                <a class="nav-item nav-link active text-secondary" th:href="@{/}">Home<span class="sr-only">{current}</span></a>
+            </ul>
+            <ul class="navbar-nav">
+                <a th:text="${current}"></a>
+            </ul>
+            <ul class="navbar-nav pull-right">
+                <a class="nav-item nav-link active" th:href="@{/logout}">Logout</a>
             </ul>
             <span class="navbar-text" th:text="${pageName}"></span>
         </div>
