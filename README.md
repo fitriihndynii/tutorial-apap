@@ -217,3 +217,42 @@ Boot
    **ResponseEntity** merepresentasikan keseluruhan HTTP response, dapat digunakan untuk mengontrol/ memanipulasi yang termasuk dalam HTTP response, 
    seperti status code, headers, dan body. 
    **BindingResult** adalah object Spring yang menampung hasil dari validation, binding, dan contain errors yang mungkin saja muncul
+   
+### What I did not understand
+- 
+
+## Tutorial 6
+### What I have learned today
+- Perbedaan otentikasi dan otorisasi
+- Cara mengimplementasikan Spring Boot Starter Security
+- Cara membuat otorisasi fitur yang berbeda-beda untuk tiap role dari user
+- Cara meng-*encrypt* password milik user
+
+### Pertanyaan
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi? 
+
+    Otentikasi adalah proses pengecekan pemverifikasian validitas seorang pengguna. Contohnya adalah pengecekan user pada form login.
+    Otorisasi adalah proses pengecekan kekuasaan/ hak akses pengguna. Konsep ini diimplementasikan pada file WebSecurityConfig pada method 
+    configure dimana ada pengaturan url yang hanya bisa diakses oleh role tertentu, contoh: .antMatchers("/user/addUser").hasAuthority("ADMIN")
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.
+
+    BCryptPasswordEncoder merupakan kelas yang mengimplementasikan PasswordEncoder dan menyediakan fungsi untuk melakukan hashing pada password. 
+    BcryptPasswordEncoder digunakan untuk melakukan encode pada password. BCryptPasswordEncoder secara otomatis akan membuat dan menggunakan *random salt* 
+    untuk menghitung hash password yang dimasukkan.
+   
+3. Jelaskan secara singkat apa itu UUID beserta penggunaannya! 
+
+    UUID adalah singkatan dari  universally unique identifier , artinya identifier ini secara global unik. Penggunaan UUID 
+    untuk mengidentifikasi informasi  yang ada di sistem komputer atau mengidentifikasi informasi yang dapat ditambahkan dari berbagai sistem informasi. 
+    
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserServiceImpl.java? 
+
+    UserDetailsServiceImpl merupakan class yang mengimplementasikan interface UserDetails dari Spring Security.
+    UserDetailsServiceImpl.java dibuat agar kita dapat memiliki service mengenai user details kita sendiri , hal ini dilakukan 
+    dengan cara mendefinisikan ulang fungsi loadUserByUsername yang merupakan fungsi pada UserDetailsService.
+    Dengan class User Details kita dapat mengambil dan menyimpan segala bentuk informasi secara langsung untuk disimpan dan 
+    dienkapsulasi menjadi Authentication Object. Sedangkan dengan class UserServiceImpl kita harus melakukan identifikasi informasi terlebih dahulu.
+    
+### What I did not understand
+- 
