@@ -52,10 +52,16 @@
                                 <option selected value=""> -- Pilih Role --</option>
                                 <option th:each="role : ${listRole}" th:value="${role.id}" th:text="${role.role}"></option>
                             </select>
-
+                            <p>Password harus mengandung angka dan huruf serta minimal memiliki 8 karakter</p>
                             <br>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
+                        <div th:if = "${passValid == 1}">
+                            <p class="text-danger">Penambahan user berhasil</p>
+                        </div>
+                        <div th:if = "${passValid == 2}">
+                            <p class="text-danger">Penambahan user gagal karena password tidak valid!</p>
+                        </div>
                     </div>
                 </div>
             </div>

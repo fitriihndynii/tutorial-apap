@@ -21,7 +21,27 @@ public class UserController{
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     private String addUserSubmit(@ModelAttribute UserModel user, Model model){
-        userService.addUser(user);
+        int passValid = 0;
+        if(user.getPassword().length() >= 8) {
+            boolean angka = false;
+            boolean huruf = false;
+            char[] charPass = user.getPassword().toCharArray();
+            for (int i = 0; i < user.getPassword().length(); i++) {
+                char ch = charPass[i];
+                if (ch >= 'a' && ch <= 'z') {
+                    huruf = true;
+                } else if (!(ch >= 'a' && ch <= 'a')) {
+                    angka = true;
+                }
+            }
+            if (angka && huruf) {
+                userService.addUser(user);
+                passValid = 1;
+            }else{
+                passValid = 2;
+            }
+        }
+        model.addAttribute("passValid", passValid);
         model.addAttribute("user", user);
         return "redirect:/";
     }
@@ -46,9 +66,23 @@ public class UserController{
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         boolean passValid = passwordEncoder.matches(passwordLama, pass);
         if (passValid){
-            if (passwordBaru.equals(konfirmasiPassword)) {
-                userService.userUpdatedPassword(user, passwordBaru);
-                return "password-updated";
+            if(passwordBaru.length() >= 8){
+                boolean angka = false;
+                boolean huruf = false;
+                char[] charPass = passwordBaru.toCharArray();
+                for(int i = 0; i< passwordBaru.length(); i++){
+                    char ch = charPass[i];
+                    if(ch >= 'a' && ch <= 'z'){
+                        huruf = true;
+                    }
+                    else if(!(ch >= 'a' && ch <= 'a')){
+                        angka = true;
+                    }
+                }
+                if (angka && huruf && passwordBaru.equals(konfirmasiPassword)) {
+                    userService.userUpdatedPassword(user, passwordBaru);
+                    return "password-updated";
+                }
             }
         }
         return "password-update-error";
