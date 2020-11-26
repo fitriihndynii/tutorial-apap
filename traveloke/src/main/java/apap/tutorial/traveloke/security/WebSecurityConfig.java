@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/hotel/**").hasAuthority("RECEPTIONIST")
                 .antMatchers("/user/addUser").hasAuthority("ADMIN")
-                .antMatchers("/kamar/add").hasAuthority("RECEPTIONIST")
+                .antMatchers("/kamar/add/**").hasAuthority("RECEPTIONIST")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
