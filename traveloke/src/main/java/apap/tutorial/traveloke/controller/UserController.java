@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/user")
 public class UserController{
@@ -22,7 +24,15 @@ public class UserController{
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     private String addUserSubmit(@ModelAttribute UserModel user, Model model){
         int passValid = 0;
-        if(user.getPassword().length() >= 8) {
+        boolean userValid = true;
+        String username = user.getUsername();
+        List<UserModel> listUser = userService.getListUser();
+        for (int i =0; i<listUser.size(); i++){
+            if(!(username.equals(listUser.get(i).getUsername()))){
+                userValid = false;
+            }
+        }
+        if(userValid && user.getPassword().length() >= 8) {
             boolean angka = false;
             boolean huruf = false;
             char[] charPass = user.getPassword().toCharArray();
@@ -35,11 +45,13 @@ public class UserController{
                 }
             }
             if (angka && huruf) {
-                userService.addUser(user);
                 passValid = 1;
+                userService.addUser(user);
             }else{
                 passValid = 2;
             }
+        }else{
+            return "error-username";
         }
         model.addAttribute("passValid", passValid);
         model.addAttribute("user", user);
