@@ -30,7 +30,20 @@ export default class App extends React.Component{
     const targetInd = newItems.findIndex((it) => it.id === newItem.id);
 
     if (targetInd < 0) newItems.push(newItem);
-    // else newItems.splice(targetInd, 1); //Delete 1 item at index targetInd
+    else newItems.splice(targetInd, 1); //Delete 1 item at index targetInd
+
+    // Trigger set state
+    this.setState({ favItems: newItems })
+  };
+
+  handleAddFavorite = (item) => {
+    // Immutability
+    const newItems =  [ ...this.state.favItems];
+    const newItem = { ...item };
+    // Find item index using id
+    const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+
+    if (targetInd < 0) newItems.push(newItem);
 
     // Trigger set state
     this.setState({ favItems: newItems })
@@ -62,7 +75,7 @@ export default class App extends React.Component{
               <List
                 title="List Movies"
                 items={listMovies}
-                onItemClick={this.handleItemClick}
+                onItemClick={this.handleAddFavorite}
                 />
               </div>
               <div className="col-sm">
