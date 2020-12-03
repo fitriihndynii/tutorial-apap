@@ -256,3 +256,41 @@ Boot
     
 ### What I did not understand
 - 
+
+## Tutorial 7
+### What I have learned today
+- Bersenang-senang dan mengenal teknologi *web development* baru
+- Mengenal & menggunakan ReactJS
+- Mengerti istilah, teknologi, arsitektur dan *design* di ReactJS
+- Memahami perbedaan *class component* dan functional component
+- Memahami perbedaan *state* dan *props*
+
+
+### Pertanyaan
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+    
+    Jawaban dapat dilihat di link berikut ini
+    (https://docs.google.com/document/d/1M4BkbPKDA4L4J8Z8YCRASsrdX9DhHRTrEgkUQ0TObWU/edit?usp=sharing)
+    
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
+
+    Properti biasa digunakan untuk menyimpan fitur yang penting dalam React, selain itu props juga sering digunakan atau dipakai. 
+    Property biasanya digunakan dengan cara melakukan passing nilai saja, serta properti biasa digunakan untuk berkomunikasi antar component. 
+    State merupakan data yang tersimpan dalam sebuah component. State bersifat private dan hanya relevan terhadap component itu sendiri. 
+    Berbeda dengan props yang valuenya dilempar dari component lain, state justru dapat menyimpan dan mengubah datanya sendiri dari dalam.
+    
+3. Apa keuntungan menggunakan component (e.g. List, Item) di React? Berikan contohnya!
+
+    Dapat digunakan kembali, contohnya yaitu ketika kita ingin menampilkan List Movies dan list My Favorites dengan tampilan yang sama,
+    maka kita menggunakan fungsi List yang ada pada component List
+
+4. Menurut kamu, apa saja kelebihan menggunakan React dalam pengembangan web
+
+    - Reusable Component
+    - Sudah banyak digunakan di seluruh perusahaan besar
+    - React Native untuk Mobile App Development
+    
+5. Menurut kamu, apa saja kekurangan menggunakan React dalam pengembangan web? 
+
+    - Kesulitan dengan JavaScript, hal ini dikarenakan JavaScript memiliki perkembangan yang sangat cepat.
+    - React hanya baru di support pada browser tertentu saja yaitu google chrome, mozilla firefox, dan internet explorer versi 8
