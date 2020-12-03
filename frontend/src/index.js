@@ -4,6 +4,7 @@ import './index.css';
 import AppFunc from "./AppFunc";
 import AppClass from "./App";
 import reportWebVitals from './reportWebVitals';
+import "antd/dist/antd.css";
 
 ReactDOM.render(
   <>
