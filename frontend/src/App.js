@@ -1,6 +1,7 @@
 import React from "react";
 
 import List from "components/List";
+import EmptyState from "components/EmptyState";
 import listMovies from "movies.json";
 import "./App.css";
 import {Switch} from "antd";
@@ -71,6 +72,7 @@ export default class App extends React.Component{
                   onItemClick={this.handleItemClick}
                   />
                   {this.state.favItems.length > 0 &&  <button type="buttton" onClick={this.deleteFavorit}>Delete All Favorites</button>}
+                  {this.state.favItems.length == 0 && <EmptyState></EmptyState>}
               </div>
             </div>
             : <div className="row">
