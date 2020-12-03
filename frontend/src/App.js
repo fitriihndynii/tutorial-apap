@@ -1,32 +1,35 @@
 import React from "react";
 
 import List from "components/List";
-
 import listMovies from "movies.json";
-
 import "./App.css";
 
 export default class App extends React.Component{
-  state ={
+  state = {
     favItems: [],
   };
-  handleItemClick = (item) =>{
-    const newItems =  [...this.state.favItems];
-    const newItem = {...item};
-    const targetInd = newItems.findIndex((it)=> it.id === newItem.id);
 
-    if(targetInd < 0) newItems.push(newItem);
-    else newItems.splice(targetInd,1);
+  handleItemClick = (item) => {
+    // Immutability
+    const newItems =  [ ...this.state.favItems];
+    const newItem = { ...item };
+    // Find item index using id
+    const targetInd = newItems.findIndex((it) => it.id === newItem.id);
 
-    this.setState({favItems: newItems})
+    if (targetInd < 0) newItems.push(newItem);
+    else newItems.splice(targetInd, 1); //Delete 1 item at index targetInd
+
+    // Trigger set state
+    this.setState({ favItems: newItems })
   };
+
   render(){
-    const{favItems} = this.state
+    const { favItems } = this.state;
     return(
       <div className ="container-fluid">
         <h1 className="text-center mt-3 mb-0">Favourites Movie App</h1>
         <p className="text-center text-secondary text-sm font-italic">
-          (This is a <strong>class-based</strong>application)
+          (This is a <strong>class-based</strong> application)
         </p>
         <div className="container pt-3">
           <div className="row">
@@ -37,14 +40,12 @@ export default class App extends React.Component{
                 onItemClick={this.handleItemClick}
                 />
             </div>
-            <div>
-              <div className="col-sm">
-                <List 
-                  title="My Favorites"
-                  items = {favItems}
-                  onItemClick={this.handleItemClick}
-                  />
-              </div>
+            <div className="col-sm">
+              <List 
+                title="My Favorites"
+                items={favItems}
+                onItemClick={this.handleItemClick}
+                />
             </div>
           </div>
         </div>

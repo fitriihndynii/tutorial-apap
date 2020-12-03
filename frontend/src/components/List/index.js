@@ -2,7 +2,7 @@ import React from "react";
 
 import Item from "components/Item";
 
-export default function List({title,items, onItemClick}){
+export default function List({ title, items, onItemClick} ){
     return (
         <>
             <h3 style={styles.heading}>{title}</h3>

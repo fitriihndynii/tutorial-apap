@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function Item(props){
-    const {item, onChange} = props;
-    const {judul, sinopsis, genre, rating, tahun, imgUrl, checked} = item;
+    const { item, onChange } = props;
+    const { judul, sinopsis, genre, rating, tahun, imgUrl, checked } = item;
 
     const handleChange = () =>
-    !!onChange && onChange({...item,checked: !checked}); 
+    !!onChange && onChange({ ...item,checked: !checked}); 
 
     return (
         <button 
@@ -23,6 +23,7 @@ export default function Item(props){
                             {judul} ({tahun})
                             <input
                                 className="ml-2"
+                                type="checkbox"
                                 checked={checked}
                                 onChange={handleChange}
                             />
