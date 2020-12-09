@@ -6,17 +6,32 @@ import listMovies from "movies.json";
 import "./App.css";
 import {Switch} from "antd";
 
+const black = "#616161";
+const white = "#FFFFFF";
 
 export default class App extends React.Component{
   state = {
     favItems: [],
-    checked: false
+    checked: false,
+    color: white,
   };
 
   constructor(){
     super()
+    this.state = {color: white};
+    this.changeColor = this.changeColor.bind(this);
     this.handleChange = this.handleChange.bind(this)
   };
+
+  changeColor(){
+    let backgroundColor = black;
+    if(this.state.color == black){
+        backgroundColor = white;
+    }
+    this.setState({
+        color: backgroundColor
+    });
+}
 
   handleChange(checked){
     this.setState({checked: checked})
@@ -56,7 +71,7 @@ export default class App extends React.Component{
   render(){
     const { favItems } = this.state;
     return(
-      <div className ="container-fluid">
+      <div style={{background: this.state.color}} className ="container-fluid">
         <h1 className="text-center mt-3 mb-0">Favourites Movie App</h1>
         <p className="text-center text-secondary text-sm font-italic">
           (This is a <strong>class-based</strong> application)
@@ -67,6 +82,10 @@ export default class App extends React.Component{
             onChange={this.handleChange}
             checked = {this.state.checked}
           /> <strong>Show Favorites</strong>
+          <Switch
+            className ="react-switch"
+            onClick={this.changeColor}
+          /> <strong>Dark Mode</strong>
           </div>
           <div className="container pt-3">
             <b> {this.state.checked ?
