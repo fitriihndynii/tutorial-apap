@@ -4,6 +4,7 @@ import classes from "./styles.module.css";
 import APIConfig from "../../api/APIConfig";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
+import Kamar from "../../components/Kamar";
 
 class HotelList extends Component {
     constructor(props) {
@@ -159,7 +160,19 @@ class HotelList extends Component {
                     nomorTelepon={hotel.nomorTelepon}
                     handleEdit={() => this.handleEditHotel(hotel)}
                     handleDelete={() => this.handleDeleteHotel(hotel.id)}
-                    />
+                    >
+                        <p>List Kamar: </p>
+                        {hotel.listKamar.length == 0 ?
+                        <p><strong>Hotel tidak memiliki kamar</strong></p> : 
+                        <div>
+                            {hotel.listKamar.map((kamar) => (
+                                <Kamar 
+                                namaKamar={kamar.namaKamar}
+                                kapasitas={kamar.kapasitasKamar}></Kamar>
+                            ))}
+                        </div>
+                        }
+                    </Hotel>
                     ))}
                 </div>
                 <Modal
