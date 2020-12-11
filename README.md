@@ -265,7 +265,6 @@ Boot
 - Memahami perbedaan *class component* dan functional component
 - Memahami perbedaan *state* dan *props*
 
-
 ### Pertanyaan
 1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
     
@@ -294,3 +293,43 @@ Boot
 
     - Kesulitan dengan JavaScript, hal ini dikarenakan JavaScript memiliki perkembangan yang sangat cepat.
     - React hanya baru di support pada browser tertentu saja yaitu google chrome, mozilla firefox, dan internet explorer versi 8
+
+### What I did not understand
+- 
+
+## Tutorial 8
+### What I have learned today
+- Memahami lifecycle yang ada di sebuah component
+- Melakukan routing di react app
+- Melakukan autentikasi pada react app
+- Melakukan HTTP Request pada react app menggunakan library
+- Memahami Axios dan cara untuk memproses request tersebut
+- Melakukan deployment aplikasi berbasis react
+
+### Pertanyaan
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut? 
+
+    Langkah-langkah yang Saya lakukan adalah mengatur item-item pada state: namaHotel, alamat, dan nomorTelepon menjadi kosong kembali. Pengaturan ini dilakukan pada fungsi handleCancel. Saya melakukan langkah-langkah ini karena pada input-input yang ada di form, value-nya di assign dengan namaHotel,alamat, dan nomorTelepon pada state. Sehingga setelah input diisi, item-item harus dikosongkan lagi(diatur jadi string kosong). Pengaturan dilakukan di handleCancel karena pada fungsi handleSumbitAddHotel dan handleSubmitEditHotel akan memanggil handleCancel terlepas berhasil atau tidaknya submit.
+
+2. Jelaskan fungsi dari async dan await! 
+
+    Kedua fungsi digunakan untuk mempermudah penulisan kode promise-based yang dapat membuat hasil tugas asinkron mudah dibaca. Async dapat digunakan untuk mentrigger penggunaan await yang terdapat di dalam fungsi async. Ketika kita menggunakan async pada sebuah fungsi, maka kita dapat menggunakan await di dalam fungsi tersebut yang akan melakukan suatu tugas tertentu dan akan menghentikan sejenak proses fungsi async setelahnya. Ketika tugas tersebut telah selesai, maka fungsi async dapat dilanjutkan kembali hingga selesai.
+    Contoh penggunaan kedua fungsi tersebut terdapat pada fungsi async handleSubmitAddHotel yang di dalamnya terdapat penggunaan await APIConfig.post("/hotel", data); yang dimana fungsi handleSubmitAddHotel akan terhenti sejenak hingga APIConfig.post berhasil dilakukan. Jika APIConfig.post berhasil dilakukan, fungsi handleSubmitAddHotel akan dilanjutkan kembali untuk menampilkan list hotel yang terdapat pada database dengan pemanggilan fungsi loadData.
+
+3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 7 pada Component Lifecycle pada pertanyaan ini.
+
+    Jawaban dapat dilihat di link berikut ini
+    https://docs.google.com/document/d/1ayy8W_hEi4zEKjjBVRTrxzaVSJNUzWoh0pUh8a0_mL4/edit?usp=sharing
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”. 
+
+    - **componentDidMount** dapat digunakan untuk menjalankan fungsi async segera setelah *components* ditampilkan. Fungsi ini dipanggil ketika *component* di-render untuk pertama kali. Contoh penggunaan lifecycle ini adalah ketika kita ingin menyambungkan aplikasi react kita dengan aplikasi luar seperti web APIs ataupun framework JavaScript
+
+    - **shouldComponentUpdate** memutuskan apakah sebuah *component* harus di-render ulang atau tidak. Kegunaan utamanya adalah untuk optimasi kinerja. Fungsi dipanggil ketika props atau state dari sebuah *component* berubah. Salah satu contoh penggunaan lifecycle ini adalah ketika kita menampilkan form checkbox yang akan menyimpan info pilihan pengguna dari suatu *component* yang dimana satu aksi dari pengguna terhadap form tersebut dapat mentrigger *component* tersebut untuk menyimpan pilihan yang telah dipilih. Agar list form tidak dirender ulang, kita dapat menggunakan lifecycle ini.
+
+    - **componentDidUpdate** dapat digunakan untuk melakukan beberapa action berdasarkan kondisional tertentu setelah props atau state berubah. Fungsi ini dipanggil setelah re-render dilakukan setelah adanya props atau state yang berubah. Contoh penggunaan lifecycle ini adalah ketika kita memanggil API dari luar dengan conditional state sebelum dan state sekarang sudah berubah.
+
+    - **componentWillReceiveProps** dapat digunakan untuk mengubah state tanpa harus re-render. Fungsi ini dipanggil ketika  sebuah *component* menerima properti baru, tetapi sebelum *component* di-render.  Contoh penggunaan lifecycle ini adalah ketika ingin terjadi perubahan pada prop tertentu untuk memicu transisi state.
+
+### What I did not understand
+- 
