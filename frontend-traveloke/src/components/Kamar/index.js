@@ -5,7 +5,7 @@ const Kamar = (props) => {
 const { namaKamar, kapasitas } = props;
 return (
     <div className={classes.kamar}>
-        <p>{`${namaKamar} (${kapasitas})`}</p>
+        <h4 className={classes.atribut}>{`${namaKamar} (${kapasitas})`}</h4>
     </div>
 );
 };

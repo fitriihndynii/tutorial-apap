@@ -27,3 +27,14 @@
     margin: 16px 0;
     resize: none;
 }
+
+.searchbar{
+    margin: 10px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid grey;
+    padding: 7px;
+    margin: 7px 0px 0px;
+    box-sizing: border-box;
+}

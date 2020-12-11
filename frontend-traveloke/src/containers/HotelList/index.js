@@ -17,6 +17,7 @@ class HotelList extends Component {
         namaHotel: "",
         alamat: "",
         nomorTelepon: "",
+        search: "",
     };
     // this.handleClickLoading = this.handleClickLoading.bind(this);
     this.handleAddHotel = this.handleAddHotel.bind(this);
@@ -26,6 +27,13 @@ class HotelList extends Component {
     this.handleEditHotel = this.handleEditHotel.bind(this);
     this.handleSubmitEditHotel = this.handleSubmitEditHotel.bind(this);
     this.handleDeleteHotel = this.handleDeleteHotel.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    }
+
+    handleSearch(e){
+        e.preventDefault();
+        this.setState({search: e.target.value});
+        console.log(this.state.search);
     }
 
     async handleDeleteHotel(id) {
@@ -58,11 +66,6 @@ class HotelList extends Component {
             };
             await APIConfig.put(`/hotel/${this.state.id}`, data);
             this.loadData();
-            this.setState({
-                namaHotel: "",
-                alamat: "",
-                nomorTelepon: "",
-            })
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
@@ -78,6 +81,11 @@ class HotelList extends Component {
     handleCancel(event) {
         event.preventDefault();
         this.setState({ isCreate: false, isEdit:false });
+        this.setState({
+            namaHotel: "",
+            alamat: "",
+            nomorTelepon: "",
+        })
     }
 
     async handleSubmitAddHotel(event) {
@@ -90,11 +98,6 @@ class HotelList extends Component {
             };
             await APIConfig.post("/hotel", data);
             this.loadData();
-            this.setState({
-                namaHotel: "",
-                alamat: "",
-                nomorTelepon: "",
-            })
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
@@ -144,6 +147,12 @@ class HotelList extends Component {
     //     </div>
     // );
     render() {
+        let filteredHotels = this.state.hotels.filter(
+            (hotel) => {
+                return hotel.namaHotel.toLowerCase().
+                indexOf(this.state.search.toLowerCase()) !== -1;
+            }
+        );
         return (
             <div className={classes.hotelList}>
                 <h1 className={classes.title}>All Hotels</h1>
@@ -151,7 +160,16 @@ class HotelList extends Component {
                 Add Hotel
                 </Button>
                 <div>
-                    {this.state.hotels.map((hotel) => (
+                    <input
+                    className={classes.searchbar}
+                    type="text"
+                    placeholder="Cari Hotel"
+                    onChange={this.handleSearch}
+                    value={this.state.search}
+                    />
+                </div>
+                <div>
+                    {filteredHotels.map((hotel) => (
                     <Hotel
                     key={hotel.id}
                     id={hotel.id}
@@ -168,7 +186,7 @@ class HotelList extends Component {
                             {hotel.listKamar.map((kamar) => (
                                 <Kamar 
                                 namaKamar={kamar.namaKamar}
-                                kapasitas={kamar.kapasitasKamar}></Kamar>
+                                kapasitas={kamar.kapasitasKamar}/>
                             ))}
                         </div>
                         }
