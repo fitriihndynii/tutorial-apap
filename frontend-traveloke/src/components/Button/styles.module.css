@@ -5,16 +5,20 @@
     color: white;
     cursor: pointer;
     font-weight: bold;
-    }
-    .button:hover {
+}
+    
+.button:hover {
     opacity: 0.9;
-    }
-    .primary {
+}
+    
+.primary {
     background-color: #346cce;
-    }
-    .success {
+}
+    
+.success {
     background-color: #2fb851;
-    }
-    .danger {
+}
+    
+.danger {
     background-color: #ce3434;
-    }
+}

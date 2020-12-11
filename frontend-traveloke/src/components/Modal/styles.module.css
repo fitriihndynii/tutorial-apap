@@ -15,8 +15,9 @@
     transition: all 0.3s ease-out;
     transform: translateY(-50vh);
     opacity: 0;
-    }
-    .show {
+}
+
+.show {
     transform: translateY(0);
     opacity: 1;
-    }
+}
