@@ -1,0 +1,21 @@
+.kamar {
+    border-radius: 20px;
+    background-color: #346cce;
+    width: max-content;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 3px;
+    color: white;
+    font-weight: bold;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+}
+
+.atribut{
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    padding-top: 5px;
+}
